@@ -7,7 +7,7 @@ import Link from "next/link";
 const BigDiv = styled.div`
     background-color: dimgrey;
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;

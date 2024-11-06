@@ -5,17 +5,33 @@ import useSWR from "swr";
 import WeatherCard from "@/app/components/weatherCard";
 import styled from "styled-components";
 import { Weather } from "@/app/interfaces/weather";
+import Link from "next/link";
 
 const WeatherContentWrapper = styled.main`
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     margin: auto;
-    padding: 2vh 0;
+    padding: 3% 0;
     background-color: dimgrey;
     display: flex;
     flex-direction: column;
     align-items: center;
 `;
+const MyLink = styled(Link)`
+    padding: 1%;
+    font-size: calc(5px + 2vh);
+    color: white;
+    background-color: darkblue;
+    border: none;
+    border-radius: 5vw;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+        background-color: royalblue;
+    }
+`
 
 const CityName = styled.h1`
     color: navajowhite;
@@ -59,6 +75,7 @@ export default function CityPage() {
     return (
         <WeatherContentWrapper>
             <CityName>{params.city}</CityName>
+            <MyLink href='/'>Back To Home</MyLink>
             <WeatherCardsContainer>
                 {days.map((weather: Weather, i: number) => (
                     <WeatherBubble key={i}>
